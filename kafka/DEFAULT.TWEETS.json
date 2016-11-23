@@ -1,0 +1,30 @@
+{
+  "uuid" : "dfc0d066-6e76-4f20-99e0-6109753a89f9",
+  "last_modified" : 1475032787885,
+  "version" : "1.6.0",
+  "name" : "DEFAULT.TWEETS",
+  "clusters" : [ {
+    "uuid" : null,
+    "last_modified" : 0,
+    "version" : "1.6.0",
+    "brokers" : [ {
+      "id" : 207,
+      "host" : "10.0.0.207",
+      "port" : 6667
+    }, {
+      "id" : 208,
+      "host" : "10.0.0.208",
+      "port" : 6667
+    }, {
+      "id" : 209,
+      "host" : "10.0.0.209",
+      "port" : 6667
+    } ]
+  } ],
+  "topic" : "TwitterSample",
+  "timeout" : 60000,
+  "bufferSize" : 65536,
+  "parserName" : "org.apache.kylin.source.kafka.TimedJsonStreamParser",
+  "margin" : 300000,
+  "parserProperties" : "tsColName=createdAt;tsParser=org.apache.kylin.source.kafka.DateTimeParser;tsPattern=MMM dd, yyyy hh:mm:ss aa"
+}

@@ -1,0 +1,74 @@
+{
+  "uuid" : "b6d539d4-f9e7-49d7-9bbb-e621fe33bf05",
+  "last_modified" : 1475032787827,
+  "version" : "1.6.0",
+  "name" : "TWEETS",
+  "columns" : [ {
+    "id" : "1",
+    "name" : "CREATEDAT",
+    "datatype" : "timestamp"
+  }, {
+    "id" : "4",
+    "name" : "SOURCE",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "8",
+    "name" : "ISFAVORITED",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "9",
+    "name" : "ISRETWEETED",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "10",
+    "name" : "FAVORITECOUNT",
+    "datatype" : "integer"
+  }, {
+    "id" : "11",
+    "name" : "RETWEETCOUNT",
+    "datatype" : "integer"
+  }, {
+    "id" : "12",
+    "name" : "ISPOSSIBLYSENSITIVE",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "13",
+    "name" : "LANG",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "23",
+    "name" : "YEAR_START",
+    "datatype" : "date"
+  }, {
+    "id" : "24",
+    "name" : "QUARTER_START",
+    "datatype" : "date"
+  }, {
+    "id" : "25",
+    "name" : "MONTH_START",
+    "datatype" : "date"
+  }, {
+    "id" : "26",
+    "name" : "WEEK_START",
+    "datatype" : "date"
+  }, {
+    "id" : "27",
+    "name" : "DAY_START",
+    "datatype" : "date"
+  }, {
+    "id" : "28",
+    "name" : "HOUR_START",
+    "datatype" : "timestamp"
+  }, {
+    "id" : "29",
+    "name" : "MINUTE_START",
+    "datatype" : "timestamp"
+  }, {
+    "id" : "30",
+     "name" : "USER_TIMEZONE",
+     "datatype" : "varchar(256)"
+  } ],
+  "source_type" : 1,
+  "table_type" : null,
+  "database" : "DEFAULT"
+}

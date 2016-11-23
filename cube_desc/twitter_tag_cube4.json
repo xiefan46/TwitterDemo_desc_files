@@ -1,0 +1,129 @@
+{
+  "uuid" : "b3d226b6-d4b3-45cb-95ee-ed35e8211154",
+  "last_modified" : 1476627428288,
+  "version" : "1.6.0",
+  "name" : "twitter_tag_cube4",
+  "model_name" : "twitter_tag_model3",
+  "description" : "",
+  "null_string" : null,
+  "dimensions" : [ {
+    "name" : "SOURCE",
+    "table" : "DEFAULT.TWITTER_TAG3",
+    "column" : "SOURCE",
+    "derived" : null
+  }, {
+    "name" : "LANG",
+    "table" : "DEFAULT.TWITTER_TAG3",
+    "column" : "LANG",
+    "derived" : null
+  }, {
+    "name" : "USERTIMEZONE",
+    "table" : "DEFAULT.TWITTER_TAG3",
+    "column" : "USERTIMEZONE",
+    "derived" : null
+  }, {
+    "name" : "DAY_START",
+    "table" : "DEFAULT.TWITTER_TAG3",
+    "column" : "DAY_START",
+    "derived" : null
+  }, {
+    "name" : "HOUR_START",
+    "table" : "DEFAULT.TWITTER_TAG3",
+    "column" : "HOUR_START",
+    "derived" : null
+  }, {
+    "name" : "MINUTE_START",
+    "table" : "DEFAULT.TWITTER_TAG3",
+    "column" : "MINUTE_START",
+    "derived" : null
+  } ],
+  "measures" : [ {
+    "name" : "_COUNT_",
+    "function" : {
+      "expression" : "COUNT",
+      "parameter" : {
+        "type" : "constant",
+        "value" : "1",
+        "next_parameter" : null
+      },
+      "returntype" : "bigint"
+    },
+    "dependent_measure_ref" : null
+  }, {
+    "name" : "TOP_HASH_TAG",
+    "function" : {
+      "expression" : "TOP_N",
+      "parameter" : {
+        "type" : "constant",
+        "value" : "1",
+        "next_parameter" : {
+          "type" : "column",
+          "value" : "HASHTAG",
+          "next_parameter" : null
+        }
+      },
+      "returntype" : "topn(100)",
+      "configuration" : {
+        "topn.encoding.HASHTAG" : "dict"
+      }
+    },
+    "dependent_measure_ref" : null
+  } ],
+  "dictionaries" : [ ],
+  "rowkey" : {
+    "rowkey_columns" : [ {
+      "column" : "MINUTE_START",
+      "encoding" : "time",
+      "isShardBy" : false
+    }, {
+      "column" : "HOUR_START",
+      "encoding" : "time",
+      "isShardBy" : false
+    }, {
+      "column" : "SOURCE",
+      "encoding" : "dict",
+      "isShardBy" : false
+    }, {
+      "column" : "LANG",
+      "encoding" : "dict",
+      "isShardBy" : false
+    }, {
+      "column" : "USERTIMEZONE",
+      "encoding" : "dict",
+      "isShardBy" : false
+    }, {
+      "column" : "DAY_START",
+      "encoding" : "date",
+      "isShardBy" : false
+    } ]
+  },
+  "hbase_mapping" : {
+    "column_family" : [ {
+      "name" : "F1",
+      "columns" : [ {
+        "qualifier" : "M",
+        "measure_refs" : [ "_COUNT_", "TOP_HASH_TAG" ]
+      } ]
+    } ]
+  },
+  "aggregation_groups" : [ {
+    "includes" : [ "SOURCE", "LANG", "USERTIMEZONE", "DAY_START", "HOUR_START", "MINUTE_START" ],
+    "select_rule" : {
+      "hierarchy_dims" : [ [ "DAY_START", "HOUR_START", "MINUTE_START" ] ],
+      "mandatory_dims" : [ ],
+      "joint_dims" : [ ]
+    }
+  } ],
+  "signature" : "D3qLoBQx8muUpddZINmDrQ==",
+  "notify_list" : [ ],
+  "status_need_notify" : [ "ERROR", "DISCARDED", "SUCCEED" ],
+  "partition_date_start" : 0,
+  "partition_date_end" : 3153600000000,
+  "auto_merge_time_ranges" : [ 1800000, 14400000, 86400000, 604800000 ],
+  "retention_range" : 15552000000,
+  "engine_type" : 2,
+  "storage_type" : 2,
+  "override_kylin_properties" : {
+    "kylin.hbase.region.cut" : "0.5"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "uuid" : "eaa4a4a4-7b26-4a32-bd3c-6277dd2efb52",
+  "last_modified" : 1476264788212,
+  "version" : "1.6.0",
+  "name" : "embedded_cube",
+  "model_name" : "embedded_model",
+  "description" : "",
+  "null_string" : null,
+  "dimensions" : [ {
+    "name" : "DEFAULT.TWEETS.SOURCE",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "SOURCE",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.ISFAVORITED",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "ISFAVORITED",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.ISRETWEETED",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "ISRETWEETED",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.ISPOSSIBLYSENSITIVE",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "ISPOSSIBLYSENSITIVE",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.LANG",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "LANG",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.DAY_START",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "DAY_START",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.HOUR_START",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "HOUR_START",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.MINUTE_START",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "MINUTE_START",
+    "derived" : null
+  }, {
+    "name" : "DEFAULT.TWEETS.USER_TIMEZONE",
+    "table" : "DEFAULT.TWEETS",
+    "column" : "USER_TIMEZONE",
+    "derived" : null
+  } ],
+  "measures" : [ {
+    "name" : "_COUNT_",
+    "function" : {
+      "expression" : "COUNT",
+      "parameter" : {
+        "type" : "constant",
+        "value" : "1",
+        "next_parameter" : null
+      },
+      "returntype" : "bigint"
+    },
+    "dependent_measure_ref" : null
+  }, {
+    "name" : "TOT_FAVORITE",
+    "function" : {
+      "expression" : "SUM",
+      "parameter" : {
+        "type" : "column",
+        "value" : "FAVORITECOUNT",
+        "next_parameter" : null
+      },
+      "returntype" : "bigint"
+    },
+    "dependent_measure_ref" : null
+  }, {
+    "name" : "TOT_RETWEET",
+    "function" : {
+      "expression" : "SUM",
+      "parameter" : {
+        "type" : "column",
+        "value" : "RETWEETCOUNT",
+        "next_parameter" : null
+      },
+      "returntype" : "bigint"
+    },
+    "dependent_measure_ref" : null
+  } ],
+  "dictionaries" : [ ],
+  "rowkey" : {
+    "rowkey_columns" : [ {
+      "column" : "MINUTE_START",
+      "encoding" : "time",
+      "isShardBy" : false
+    }, {
+      "column" : "SOURCE",
+      "encoding" : "dict",
+      "isShardBy" : false
+    }, {
+      "column" : "LANG",
+      "encoding" : "dict",
+      "isShardBy" : false
+    }, {
+      "column" : "USER_TIMEZONE",
+      "encoding" : "dict",
+      "isShardBy" : false
+    }, {
+      "column" : "ISFAVORITED",
+      "encoding" : "boolean",
+      "isShardBy" : false
+    }, {
+      "column" : "ISRETWEETED",
+      "encoding" : "boolean",
+      "isShardBy" : false
+    }, {
+      "column" : "ISPOSSIBLYSENSITIVE",
+      "encoding" : "boolean",
+      "isShardBy" : false
+    }, {
+      "column" : "HOUR_START",
+      "encoding" : "time",
+      "isShardBy" : false
+    }, {
+      "column" : "DAY_START",
+      "encoding" : "date",
+      "isShardBy" : false
+    } ]
+  },
+  "hbase_mapping" : {
+    "column_family" : [ {
+      "name" : "F1",
+      "columns" : [ {
+        "qualifier" : "M",
+        "measure_refs" : [ "_COUNT_", "TOT_FAVORITE", "TOT_RETWEET" ]
+      } ]
+    } ]
+  },
+  "aggregation_groups" : [ {
+    "includes" : [ "SOURCE", "ISRETWEETED", "ISFAVORITED", "ISPOSSIBLYSENSITIVE", "LANG", "DAY_START", "HOUR_START", "MINUTE_START", "USER_TIMEZONE" ],
+    "select_rule" : {
+      "hierarchy_dims" : [ [ "DAY_START", "HOUR_START", "MINUTE_START" ] ],
+      "mandatory_dims" : [ ],
+      "joint_dims" : [ [ "ISRETWEETED", "ISFAVORITED", "ISPOSSIBLYSENSITIVE" ] ]
+    }
+  } ],
+  "signature" : "wJ+bCpHDgn0xU5IGr6ugbQ==",
+  "notify_list" : [ "shaofeng@kyligence.io" ],
+  "status_need_notify" : [ "ERROR", "DISCARDED", "SUCCEED" ],
+  "partition_date_start" : 0,
+  "partition_date_end" : 3153600000000,
+  "auto_merge_time_ranges" : [ 1800000, 14400000, 86400000, 604800000 ],
+  "retention_range" : 1209600000,
+  "engine_type" : 2,
+  "storage_type" : 2,
+  "override_kylin_properties" : {
+    "kylin.hbase.region.cut" : "0.5",
+    "kylin.cube.algorithm" : "inmem"
+  }
+}

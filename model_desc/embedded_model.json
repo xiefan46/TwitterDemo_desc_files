@@ -1,0 +1,26 @@
+{
+  "uuid" : "4de023ac-38b5-4411-a7e0-f0dc1ad4956d",
+  "last_modified" : 1475981881251,
+  "version" : "1.6.0",
+  "name" : "embedded_model",
+  "owner" : "fan.xie",
+  "description" : "",
+  "fact_table" : "DEFAULT.TWEETS",
+  "lookups" : [ ],
+  "dimensions" : [ {
+    "table" : "DEFAULT.TWEETS",
+    "columns" : [ "SOURCE", "ISRETWEETED", "ISFAVORITED", "ISPOSSIBLYSENSITIVE", "LANG", "DAY_START", "HOUR_START", "MINUTE_START", "WEEK_START", "MONTH_START", "YEAR_START", "USER_TIMEZONE" ]
+  } ],
+  "metrics" : [ "FAVORITECOUNT", "RETWEETCOUNT" ],
+  "filter_condition" : "",
+  "partition_desc" : {
+    "partition_date_column" : "DEFAULT.TWEETS.MINUTE_START",
+    "partition_time_column" : null,
+    "partition_date_start" : 0,
+    "partition_date_format" : "yyyy-MM-dd",
+    "partition_time_format" : "HH:mm:ss",
+    "partition_type" : "APPEND",
+    "partition_condition_builder" : "org.apache.kylin.metadata.model.PartitionDesc$DefaultPartitionConditionBuilder"
+  },
+  "capacity" : "MEDIUM"
+}

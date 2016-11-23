@@ -1,0 +1,66 @@
+{
+  "uuid" : "652128be-4d38-418a-b203-e77bd0d178df",
+  "last_modified" : 1476413324948,
+  "version" : "1.6.0",
+  "name" : "TWITTER_TAG3",
+  "columns" : [ {
+    "id" : "2",
+    "name" : "CREATEDAT",
+    "datatype" : "timestamp"
+  }, {
+    "id" : "3",
+    "name" : "SOURCE",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "4",
+    "name" : "FAVORITECOUNT",
+    "datatype" : "integer"
+  }, {
+    "id" : "5",
+    "name" : "RETWEETCOUNT",
+    "datatype" : "integer"
+  }, {
+    "id" : "6",
+    "name" : "LANG",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "7",
+    "name" : "USERTIMEZONE",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "8",
+    "name" : "HASHTAG",
+    "datatype" : "varchar(256)"
+  }, {
+    "id" : "9",
+    "name" : "YEAR_START",
+    "datatype" : "date"
+  }, {
+    "id" : "10",
+    "name" : "QUARTER_START",
+    "datatype" : "date"
+  }, {
+    "id" : "11",
+    "name" : "MONTH_START",
+    "datatype" : "date"
+  }, {
+    "id" : "12",
+    "name" : "WEEK_START",
+    "datatype" : "date"
+  }, {
+    "id" : "13",
+    "name" : "DAY_START",
+    "datatype" : "date"
+  }, {
+    "id" : "14",
+    "name" : "HOUR_START",
+    "datatype" : "timestamp"
+  }, {
+    "id" : "15",
+    "name" : "MINUTE_START",
+    "datatype" : "timestamp"
+  } ],
+  "source_type" : 1,
+  "table_type" : null,
+  "database" : "DEFAULT"
+}

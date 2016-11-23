@@ -1,0 +1,27 @@
+{
+  "uuid" : "dacd35c4-badd-4eb7-81b2-7c5e127669a0",
+  "last_modified" : 1478166797311,
+  "version" : "1.6.0",
+  "name" : "streaming",
+  "tables" : [ "DEFAULT.STREAMING_SALES_TABLE", "DEFAULT.TWEETS", "DEFAULT.TWITTER_TAG", "DEFAULT.TWITTER_TAG2", "DEFAULT.TWITTER_TAG3", "DEFAULT.TEST_TBL" ],
+  "owner" : "fan.xie",
+  "status" : "ENABLED",
+  "create_time_utc" : 1475032250252,
+  "last_update_time" : null,
+  "description" : "",
+  "realizations" : [ {
+    "type" : "CUBE",
+    "realization" : "embedded_cube"
+  }, {
+    "type" : "CUBE",
+    "realization" : "twitter_tag_cube4"
+  }, {
+    "type" : "CUBE",
+    "realization" : "twitter_tag_detail"
+  }, {
+    "type" : "CUBE",
+    "realization" : "TWITTER_TAG_DEMO_CUBE"
+  } ],
+  "models" : [ "tweets_model", "embedded_model", "twitter_tag_model", "twitter_tag_model3", "tutorial_demo", "TWITTER_TAG_DEMO_MODEL" ],
+  "ext_filters" : [ ]
+}

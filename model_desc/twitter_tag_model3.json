@@ -1,0 +1,26 @@
+{
+  "uuid" : "e1e289e9-e753-4152-87fd-8d5c9b9d8a13",
+  "last_modified" : 1476434335270,
+  "version" : "1.6.0",
+  "name" : "twitter_tag_model3",
+  "owner" : "fan.xie",
+  "description" : "",
+  "fact_table" : "DEFAULT.TWITTER_TAG3",
+  "lookups" : [ ],
+  "dimensions" : [ {
+    "table" : "DEFAULT.TWITTER_TAG3",
+    "columns" : [ "CREATEDAT", "SOURCE", "FAVORITECOUNT", "RETWEETCOUNT", "LANG", "USERTIMEZONE", "YEAR_START", "QUARTER_START", "MONTH_START", "WEEK_START", "DAY_START", "HOUR_START", "MINUTE_START", "HASHTAG" ]
+  } ],
+  "metrics" : [ "HASHTAG" ],
+  "filter_condition" : "",
+  "partition_desc" : {
+    "partition_date_column" : "DEFAULT.TWITTER_TAG3.MINUTE_START",
+    "partition_time_column" : null,
+    "partition_date_start" : 0,
+    "partition_date_format" : "yyyy-MM-dd",
+    "partition_time_format" : "HH:mm:ss",
+    "partition_type" : "APPEND",
+    "partition_condition_builder" : "org.apache.kylin.metadata.model.PartitionDesc$DefaultPartitionConditionBuilder"
+  },
+  "capacity" : "MEDIUM"
+}

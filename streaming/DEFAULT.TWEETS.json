@@ -1,0 +1,7 @@
+{
+  "uuid" : "124c6999-9c55-4c5b-a695-4c025ae118aa",
+  "last_modified" : 1475032787862,
+  "version" : "1.6.0",
+  "name" : "DEFAULT.TWEETS",
+  "type" : "kafka"
+}
